@@ -22,8 +22,12 @@ public class ShootController : MonoBehaviour
         {
             if (_currentWeapon != null)
             {
+                Debug.Log(_currentWeapon + " Стреляет");
                 _currentWeapon.Shoot();
-                RotatePlayerTowardsMouse();
+              
+            } else
+            {
+                Debug.Log("No Current Weapon");
             }
         }
         RotatePlayerTowardsMouse();

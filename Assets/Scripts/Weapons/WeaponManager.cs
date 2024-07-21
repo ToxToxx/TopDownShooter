@@ -5,27 +5,35 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
+    private WeaponState _weaponState;
 
     [Header("Pistol Data")]
-    [SerializeField] private PistolComponent _pistol;
-    [SerializeField] private GameObject _pistolGameObject;
+    public GameObject PistolGameObject;
 
     [Header("Shotgun Data")]
-    [SerializeField] private ShotgunComponent _shotgun;
-    [SerializeField] private GameObject _shotgunGameObject;
+    public GameObject ShotgunGameObject;
+
+    [Header("Rifle Data")]
+    public GameObject RifleGameObject;
 
     private void Awake()
     {
         Instance = this;
+        _weaponState = new WeaponState();
     }
+
     private void Start()
     {
-        ChangeWeapon(_pistol);
+        _weaponState.EquipWeapon(WeaponType.Pistol);
     }
 
-    public void ChangeWeapon(Weapon weapon)
+    public void ChangeWeaponState(WeaponType weaponType)
     {
-        ShootController.Instance.SetWeapon(weapon);
+        _weaponState.EquipWeapon(weaponType);
     }
 
+    public Transform GetWeaponManagerTransform()
+    {
+        return transform;
+    }
 }

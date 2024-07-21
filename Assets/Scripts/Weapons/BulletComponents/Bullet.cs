@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float _range = 25f;
     private Vector3 _startPosition;
 
-    private void Start()
+    private void OnEnable()
     {
         _startPosition = transform.position;
     }

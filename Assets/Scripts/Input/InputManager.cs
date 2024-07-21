@@ -30,6 +30,21 @@ public class InputManager : MonoBehaviour
         ShootWasPressed = _shootAction.WasPressedThisFrame();
         ShootWasHeld = _shootAction.IsPressed();
         ShootWasReleased = _shootAction.WasReleasedThisFrame();
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            WeaponManager.Instance.ChangeWeaponState(WeaponType.Pistol);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            WeaponManager.Instance.ChangeWeaponState(WeaponType.Shotgun);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            WeaponManager.Instance.ChangeWeaponState(WeaponType.Rifle);
+        }
+
     }
 
 
