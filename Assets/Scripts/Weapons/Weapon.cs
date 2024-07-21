@@ -2,6 +2,6 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public WeaponData WeaponData;
+    public WeaponData WeaponStats;
     public virtual void Shoot() { }
 }

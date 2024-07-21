@@ -10,7 +10,7 @@ public class PistolComponent : Weapon
 
     private void Start()
     {
-        _shotInterval = 1f / WeaponData.FireRate;
+        _shotInterval = 1f / WeaponStats.FireRate;
     }
 
     private void Update()
@@ -24,7 +24,7 @@ public class PistolComponent : Weapon
         {
             _timeSinceLastShot = 0f;
             GameObject bullet = Instantiate(_bulletPrefab, WeaponManager.Instance.GetWeaponManagerTransform().position, WeaponManager.Instance.GetWeaponManagerTransform().rotation);
-            Debug.Log($"{WeaponData.WeaponName} выстрелил");
+            Debug.Log($"{WeaponStats.WeaponName} выстрелил");
         }
         else
         {

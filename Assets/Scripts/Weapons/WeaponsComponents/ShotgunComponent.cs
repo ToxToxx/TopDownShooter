@@ -12,7 +12,7 @@ public class ShotgunComponent : Weapon
 
     private void Start()
     {
-        _shotInterval = 1f / WeaponData.FireRate;
+        _shotInterval = 1f / WeaponStats.FireRate;
     }
 
     private void Update()
@@ -32,7 +32,7 @@ public class ShotgunComponent : Weapon
                 Instantiate(_bulletPrefab, WeaponManager.Instance.GetWeaponManagerTransform().position, rotation);
             }
 
-            Debug.Log($"{WeaponData.WeaponName} выстрелил");
+            Debug.Log($"{WeaponStats.WeaponName} выстрелил");
         }
         else
         {

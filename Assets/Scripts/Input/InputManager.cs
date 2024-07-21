@@ -44,6 +44,10 @@ public class InputManager : MonoBehaviour
         {
             WeaponManager.Instance.ChangeWeaponState(WeaponType.Rifle);
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            WeaponManager.Instance.ChangeWeaponState(WeaponType.GrenadeLauncher);
+        }
 
     }
 

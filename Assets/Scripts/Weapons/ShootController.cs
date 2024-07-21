@@ -55,6 +55,6 @@ public class ShootController : MonoBehaviour
 
     public float GetWeaponDamage()
     {
-        return _currentWeapon.WeaponData.Damage;
+        return _currentWeapon.WeaponStats.Damage;
     }
 }

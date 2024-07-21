@@ -19,6 +19,9 @@ public class WeaponState
             case WeaponType.Rifle:
                 EquipRifle();
                 break;
+            case WeaponType.GrenadeLauncher:
+                EquipGrenadeLauncher();
+                break;
         }
     }
 
@@ -27,6 +30,7 @@ public class WeaponState
         WeaponManager.Instance.PistolGameObject.SetActive(true);
         WeaponManager.Instance.ShotgunGameObject.SetActive(false);
         WeaponManager.Instance.RifleGameObject.SetActive(false);
+        WeaponManager.Instance.GrenadeLauncher.SetActive(false);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.PistolGameObject.GetComponent<PistolComponent>());
     }
 
@@ -35,6 +39,7 @@ public class WeaponState
         WeaponManager.Instance.PistolGameObject.SetActive(false);
         WeaponManager.Instance.ShotgunGameObject.SetActive(true);
         WeaponManager.Instance.RifleGameObject.SetActive(false);
+        WeaponManager.Instance.GrenadeLauncher.SetActive(false);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.ShotgunGameObject.GetComponent<ShotgunComponent>());
     } 
     private void EquipRifle()
@@ -42,6 +47,16 @@ public class WeaponState
         WeaponManager.Instance.PistolGameObject.SetActive(false);
         WeaponManager.Instance.ShotgunGameObject.SetActive(false);
         WeaponManager.Instance.RifleGameObject.SetActive(true);
+        WeaponManager.Instance.GrenadeLauncher.SetActive(false);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.RifleGameObject.GetComponent<PistolComponent>());
+    }
+
+    private void EquipGrenadeLauncher()
+    {
+        WeaponManager.Instance.PistolGameObject.SetActive(false);
+        WeaponManager.Instance.ShotgunGameObject.SetActive(false);
+        WeaponManager.Instance.RifleGameObject.SetActive(false);
+        WeaponManager.Instance.GrenadeLauncher.SetActive(true);
+        ShootController.Instance.SetWeapon(WeaponManager.Instance.GrenadeLauncher.GetComponent<GrenadeLauncherComponent>());
     }
 }

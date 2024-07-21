@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 4.0f;
     [SerializeField] private float _turnSpeed = 180.0f;
+
+    [Header("Movement Boundaries")]
+    [SerializeField] private float _minX = -40f;
+    [SerializeField] private float _maxX = 40f;
+    [SerializeField] private float _minZ = -30f;
+    [SerializeField] private float _maxZ = 30f;
 
     private Rigidbody _playerRb;
 
@@ -15,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerRb = GetComponent<Rigidbody>();
     }
-
 
     private void FixedUpdate()
     {
@@ -27,7 +31,13 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movementInput = InputManager.Movement;
 
         Vector3 movement = new Vector3(movementInput.x, 0, movementInput.y).normalized * _moveSpeed;
-        _playerRb.velocity = movement;
+
+        Vector3 newPosition = transform.position + movement * Time.fixedDeltaTime;
+
+        newPosition.x = Mathf.Clamp(newPosition.x, _minX, _maxX);
+        newPosition.z = Mathf.Clamp(newPosition.z, _minZ, _maxZ);
+
+        _playerRb.MovePosition(newPosition);
     }
 
     public void RotateTowardsMouse(Vector3 mousePosition)
@@ -36,7 +46,4 @@ public class PlayerMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _turnSpeed * Time.deltaTime);
     }
-
-
-
 }

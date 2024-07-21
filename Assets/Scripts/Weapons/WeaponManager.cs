@@ -16,6 +16,9 @@ public class WeaponManager : MonoBehaviour
     [Header("Rifle Data")]
     public GameObject RifleGameObject;
 
+    [Header("Grenade Launcher Data")]
+    public GameObject GrenadeLauncher;
+
     private void Awake()
     {
         Instance = this;
