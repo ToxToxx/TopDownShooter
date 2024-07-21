@@ -32,7 +32,12 @@ public class Grenade : MonoBehaviour
         Collider[] colliders = Physics.OverlapSphere(transform.position, _explosionRadius);
         foreach (Collider nearbyObject in colliders)
         {
-            Debug.Log($"{nearbyObject.name} получил {_damage} урона от взрыва гранаты");
+           if(nearbyObject.gameObject.GetComponent<Enemy>())
+            {
+                nearbyObject.gameObject.GetComponent<Enemy>().TakeDamage(ShootController.Instance.GetWeaponDamage());
+                Debug.Log($"{nearbyObject.name} получил {_damage} урона от взрыва гранаты");
+            }
+            
         }
         Destroy(gameObject);
     }

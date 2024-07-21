@@ -26,8 +26,11 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Логика нанесения урона
-        Debug.Log($"{other.name} получил {ShootController.Instance.GetWeaponDamage()} урона");
-        Destroy(gameObject);
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            other.gameObject.GetComponent<Enemy>().TakeDamage(ShootController.Instance.GetWeaponDamage());
+            Destroy(gameObject);
+            Debug.Log($"{other.name} получил {ShootController.Instance.GetWeaponDamage()} урона");
+        }
     }
 }
