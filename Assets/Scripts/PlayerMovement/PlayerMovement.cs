@@ -16,10 +16,6 @@ public class PlayerMovement : MonoBehaviour
         _playerRb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        HandleRotation();
-    }
 
     private void FixedUpdate()
     {
@@ -34,15 +30,11 @@ public class PlayerMovement : MonoBehaviour
         _playerRb.velocity = movement;
     }
 
-    private void HandleRotation()
+    public void RotateTowardsMouse(Vector3 mousePosition)
     {
-        Vector2 movementInput = InputManager.Movement;
-
-        if (movementInput != Vector2.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(movementInput.x, 0, movementInput.y));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _turnSpeed * Time.deltaTime);
-        }
+        Vector3 direction = (mousePosition - transform.position).normalized;
+        Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _turnSpeed * Time.deltaTime);
     }
 
 
