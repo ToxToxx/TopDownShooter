@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement Instance;
+
     [SerializeField] private float _moveSpeed = 4.0f;
     [SerializeField] private float _turnSpeed = 180.0f;
 
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         _playerRb = GetComponent<Rigidbody>();
     }
 
@@ -46,4 +49,11 @@ public class PlayerMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _turnSpeed * Time.deltaTime);
     }
+
+    public void ChangeMoveSpeed(float speed)
+    {
+        _moveSpeed = speed;
+    }
+
+    public float GetMoveSpeed() { return _moveSpeed; }
 }
