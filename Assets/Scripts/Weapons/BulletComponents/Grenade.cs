@@ -1,7 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс гранаты для гранатомёта
+/// </summary>
 public class Grenade : MonoBehaviour
 {
     private Vector3 _targetPosition;

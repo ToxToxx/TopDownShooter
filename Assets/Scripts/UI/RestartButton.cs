@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+/// <summary>
+/// Класс кнопки рестарта, вынесен в отдельный класс т.к. нужно обрабатывать экран смерти в отличие от смены сцен
+/// </summary>
 
 public class RestartButton : MonoBehaviour
 {

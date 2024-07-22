@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// класс позвол€ющий мен€ть сцены, переключатьс€ между ними
+/// </summary>
 public class SceneChanger : MonoBehaviour
 {
     [SerializeField] private Button _changeSceneButton;

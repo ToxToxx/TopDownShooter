@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс фабрика для создания бонусов
+/// </summary>
 public class PlayerBonusFactory
 {
     private GameObject[] _playerBonusPrefabs;

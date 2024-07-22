@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс реализующий стандартную пулю пистолета, дробовика, автомата
+/// </summary>
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed = 20f;

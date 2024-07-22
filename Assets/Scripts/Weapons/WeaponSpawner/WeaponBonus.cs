@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// Класс реализующий поведение бонусов оружия - хранит их тип и меняет оружие у игрока при подборе
+/// </summary>
 public class WeaponBonus : MonoBehaviour
 {
     [SerializeField] private WeaponType _weaponType;

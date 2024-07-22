@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Класс, реализующий стрельбу игрока и поворот в направлении мыши
+/// </summary>
 public class ShootController : MonoBehaviour
 {
     public static ShootController Instance;

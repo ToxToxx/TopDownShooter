@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GrenadeLauncherComponent : Weapon
+/// <summary>
+/// Компонент, который отвечает за поведение гранатомёта
+/// </summary>
+public sealed class GrenadeLauncherComponent : Weapon
 {
     [SerializeField] private GameObject _grenadePrefab;
     public float explosionRadius = 2f;

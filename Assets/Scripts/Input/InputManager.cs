@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Менеджер ввода игрока
+/// </summary>
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
 {

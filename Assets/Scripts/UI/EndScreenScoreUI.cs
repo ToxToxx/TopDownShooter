@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Класс, описывающий поведение экрана смерти игрока
+/// </summary>
 public class EndScreenScoreUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _playerScoreText;

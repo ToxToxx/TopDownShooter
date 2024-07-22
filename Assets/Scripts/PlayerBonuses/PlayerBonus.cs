@@ -1,7 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// абстрактный класс, реализующий общую логику поведения баффов
+/// </summary>
 public abstract class PlayerBonus : MonoBehaviour
 {
     private float _playerBonusDuration = 10f; 

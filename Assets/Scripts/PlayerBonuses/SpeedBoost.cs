@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/// <summary>
+/// класс ускорения игрока
+/// </summary>
 
-public class SpeedBoost : PlayerBonus
+public sealed class SpeedBoost : PlayerBonus
 {
     private readonly float _speedMultiplier = 1.5f;
 

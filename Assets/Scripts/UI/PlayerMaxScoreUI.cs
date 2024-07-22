@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Класс описывающий поведение текста, отображающего лучший результат игрока
+/// </summary>
 public class PlayerMaxScoreUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _maxScoreText;

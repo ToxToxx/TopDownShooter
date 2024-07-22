@@ -1,6 +1,8 @@
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Фабричный метод для создания опасных зон
+/// </summary>
 public class DangerZoneFactory
 {
     private GameObject _slowZonePrefab;

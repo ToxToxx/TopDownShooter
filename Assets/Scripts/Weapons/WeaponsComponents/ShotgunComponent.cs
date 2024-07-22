@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotgunComponent : Weapon
+/// <summary>
+/// Компонент реализующий логику дробовика
+/// </summary>
+public sealed class ShotgunComponent : Weapon
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private int _pellets = 5;

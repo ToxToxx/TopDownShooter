@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// класс для опасных зон, которые убивают
+/// </summary>
 public class DeathZone : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)

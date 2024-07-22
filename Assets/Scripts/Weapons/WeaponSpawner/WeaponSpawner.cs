@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс спавна оружий
+/// </summary>
 public class WeaponSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _weaponBonusPrefabs;

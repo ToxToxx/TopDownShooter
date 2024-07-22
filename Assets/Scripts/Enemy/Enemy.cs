@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс реализующий врага, он двигается к игроку, у него есть здоровье и он хранит свои статы
+/// </summary>
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private EnemyData _enemyData;

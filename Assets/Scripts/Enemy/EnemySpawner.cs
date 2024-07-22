@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Спавнер врагов, он реализует логику спавна, подсчёта позиции для спавна
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _enemyPrefabs;

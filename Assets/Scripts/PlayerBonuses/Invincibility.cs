@@ -1,8 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/// <summary>
+///  ласс реализующий бафф неу€звимости
+/// </summary>
 
-public class Invincibility : PlayerBonus
+public sealed class Invincibility : PlayerBonus
 {
 
     public override void ApplyEffect()

@@ -1,7 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс фабрика созданий оружия, проверяет, чтобы тип оружия при спавне не соблюдал с оружием в руках игрока
+/// </summary>
 public class WeaponBonusFactory
 {
     private GameObject[] _weaponBonusPrefabs;

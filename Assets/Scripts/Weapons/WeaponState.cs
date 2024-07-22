@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+/// <summary>
+/// Объект состояний оружий, реализована также небольшая стейт машина для переключения между ними. 
+/// По факту просто активируется тот или иной объект.
+/// Т.к. их не много, то это простой и более быстрый способ реализации,
+/// на моё мнение, уменьшающий число багов и тестов для данного количества оружий.
+/// </summary>
 public class WeaponState
 {
     public WeaponType _currentWeaponType = WeaponType.None;

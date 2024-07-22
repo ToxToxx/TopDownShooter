@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  ласс реализующий и управл€ющий очками игрока, сохран€ет и загружает их
+/// </summary>
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;

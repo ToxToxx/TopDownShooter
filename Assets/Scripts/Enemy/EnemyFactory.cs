@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Класс фабрика реализующий создание врагов
+/// </summary>
 public class EnemyFactory
 {
     private GameObject[] _enemyPrefabs;

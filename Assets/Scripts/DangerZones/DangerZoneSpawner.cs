@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Спавнер для опасных зон, он создаёт объект фабричного метода и вычисляет позицию для спавна
+/// </summary>
 public class DangerZoneSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _slowZonePrefab; 

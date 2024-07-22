@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Хранит статы оружия
+/// </summary>
 [CreateAssetMenu(fileName = "WeaponData", menuName = "ScriptableObjects/WeaponData", order = 1)]
 public class WeaponData : ScriptableObject
 {

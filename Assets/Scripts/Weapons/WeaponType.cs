@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/// <summary>
+/// Типы оружий
+/// </summary>
 
 public enum WeaponType
 {

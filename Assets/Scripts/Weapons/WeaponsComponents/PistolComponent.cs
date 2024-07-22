@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolComponent : Weapon
+/// <summary>
+/// Класс, отвечающий за повведение компонента пистолета. Автомат также реализует этот класс
+/// </summary>
+public sealed class PistolComponent : Weapon
 {
     [SerializeField] private GameObject _bulletPrefab;
     private float _timeSinceLastShot;

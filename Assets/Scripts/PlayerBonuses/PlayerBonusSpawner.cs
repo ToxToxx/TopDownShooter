@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Спавнер бонусов игрока
+/// </summary>
 public class PlayerBonusSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] _playerBonusPrefabs;

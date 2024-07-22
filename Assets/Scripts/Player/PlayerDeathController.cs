@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Класс контролирующий то, как умирает игрок и что будет происходить после смерти
+/// </summary>
 public class PlayerDeathController : MonoBehaviour
 {
     public static PlayerDeathController Instance;

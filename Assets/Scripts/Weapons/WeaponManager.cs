@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Т.к. оружий немного, то этот класс хранит о них данные и переключает по типам, также он реализует объект типов оружий
+/// </summary>
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
