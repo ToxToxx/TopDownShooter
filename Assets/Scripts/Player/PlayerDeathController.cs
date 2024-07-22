@@ -17,7 +17,7 @@ public class PlayerDeathController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         if (_isPlayerCanDie)
         {
