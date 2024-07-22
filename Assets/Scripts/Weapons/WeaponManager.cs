@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     public static WeaponManager Instance;
-    private WeaponState _weaponState;
+    public WeaponState PlayerWeaponState;
 
     [Header("Pistol Data")]
     public GameObject PistolGameObject;
@@ -22,17 +22,17 @@ public class WeaponManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        _weaponState = new WeaponState();
+        PlayerWeaponState = new WeaponState();
     }
 
     private void Start()
     {
-        _weaponState.EquipWeapon(WeaponType.Pistol);
+        PlayerWeaponState.EquipWeapon(WeaponType.Pistol);
     }
 
     public void ChangeWeaponState(WeaponType weaponType)
     {
-        _weaponState.EquipWeapon(weaponType);
+        PlayerWeaponState.EquipWeapon(weaponType);
     }
 
     public Transform GetWeaponManagerTransform()

@@ -32,6 +32,7 @@ public class WeaponState
         WeaponManager.Instance.RifleGameObject.SetActive(false);
         WeaponManager.Instance.GrenadeLauncher.SetActive(false);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.PistolGameObject.GetComponent<PistolComponent>());
+        _currentWeaponType = WeaponType.Pistol;
     }
 
     private void EquipShotgun()
@@ -41,6 +42,7 @@ public class WeaponState
         WeaponManager.Instance.RifleGameObject.SetActive(false);
         WeaponManager.Instance.GrenadeLauncher.SetActive(false);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.ShotgunGameObject.GetComponent<ShotgunComponent>());
+        _currentWeaponType = WeaponType.Shotgun;
     } 
     private void EquipRifle()
     {
@@ -49,6 +51,7 @@ public class WeaponState
         WeaponManager.Instance.RifleGameObject.SetActive(true);
         WeaponManager.Instance.GrenadeLauncher.SetActive(false);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.RifleGameObject.GetComponent<PistolComponent>());
+        _currentWeaponType = WeaponType.Rifle;
     }
 
     private void EquipGrenadeLauncher()
@@ -58,5 +61,6 @@ public class WeaponState
         WeaponManager.Instance.RifleGameObject.SetActive(false);
         WeaponManager.Instance.GrenadeLauncher.SetActive(true);
         ShootController.Instance.SetWeapon(WeaponManager.Instance.GrenadeLauncher.GetComponent<GrenadeLauncherComponent>());
+        _currentWeaponType = WeaponType.GrenadeLauncher;
     }
 }
