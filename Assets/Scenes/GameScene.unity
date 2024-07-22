@@ -1893,8 +1893,63 @@ Transform:
   - {fileID: 862432342}
   - {fileID: 583682925}
   - {fileID: 722419664}
+  - {fileID: 1463756826}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463756825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463756826}
+  - component: {fileID: 1463756827}
+  m_Layer: 0
+  m_Name: DangerZoneSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463756826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463756825}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1377837291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463756827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463756825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39227b475a2920e4b884241f5100217f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slowZonePrefab: {fileID: 1812612961865670523, guid: 27cc725ca00adcd4d8e69aa0deccb01b,
+    type: 3}
+  _deathZonePrefab: {fileID: 4293327720341390615, guid: 8dc5b4f4e206ed542868add80a431da4,
+    type: 3}
+  _slowZoneCount: 3
+  _deathZoneCount: 2
+  _slowZoneRadius: 3
+  _deathZoneRadius: 1
+  _minDistanceBetweenZones: 3
+  _minDistanceFromEdge: 3
 --- !u!1 &1606438427
 GameObject:
   m_ObjectHideFlags: 3
