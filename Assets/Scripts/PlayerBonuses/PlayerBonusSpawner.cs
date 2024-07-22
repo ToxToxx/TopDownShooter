@@ -8,10 +8,12 @@ public class PlayerBonusSpawner : MonoBehaviour
     [SerializeField] private Transform _playerTransform;
     private readonly float _spawnRate = 27f;
     private float _nextSpawnTime = 0f;
+    private PlayerBonusFactory _playerBonusFactory;
 
     void Start()
     {
         _nextSpawnTime = Time.time + _spawnRate;
+        _playerBonusFactory = new PlayerBonusFactory(_playerBonusPrefabs);
     }
 
     void Update()
@@ -19,7 +21,6 @@ public class PlayerBonusSpawner : MonoBehaviour
         if (Time.time >= _nextSpawnTime)
         {
             SpawnPowerUp();
-           
             _nextSpawnTime = Time.time + _spawnRate;
         }
     }
@@ -27,7 +28,7 @@ public class PlayerBonusSpawner : MonoBehaviour
     void SpawnPowerUp()
     {
         Vector3 spawnPosition = GetSpawnPosition();
-        GameObject selectedPowerUp = GetRandomPowerUp();
+        GameObject selectedPowerUp = _playerBonusFactory.CreateRandomPlayerBonus();
         _ = Instantiate(selectedPowerUp, spawnPosition, Quaternion.identity);
     }
 
@@ -43,11 +44,4 @@ public class PlayerBonusSpawner : MonoBehaviour
         Vector3 spawnPosition = new(x, 1, z);
         return spawnPosition;
     }
-
-    GameObject GetRandomPowerUp()
-    {
-        int randomIndex = Random.Range(0, _playerBonusPrefabs.Length);
-        return _playerBonusPrefabs[randomIndex];
-    }
-
 }

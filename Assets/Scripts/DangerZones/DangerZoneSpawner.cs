@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class DangerZoneSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _slowZonePrefab; // Префаб зоны замедления
-    [SerializeField] private GameObject _deathZonePrefab; // Префаб зоны смерти
+    [SerializeField] private GameObject _slowZonePrefab; 
+    [SerializeField] private GameObject _deathZonePrefab; 
     [SerializeField] private int _slowZoneCount = 3;
     [SerializeField] private int _deathZoneCount = 2;
     [SerializeField] private float _slowZoneRadius = 3f;
@@ -15,28 +15,30 @@ public class DangerZoneSpawner : MonoBehaviour
     [SerializeField] private float _Zdistance = 27f;
 
     private readonly List<Vector3> _spawnPositions = new();
+    private DangerZoneFactory _dangerZoneFactory;
 
     void Start()
     {
+        _dangerZoneFactory = new DangerZoneFactory(_slowZonePrefab, _deathZonePrefab);
         GenerateDangerZones();
     }
 
     void GenerateDangerZones()
     {
-        // Генерация зон замедления
         for (int i = 0; i < _slowZoneCount; i++)
         {
             Vector3 position = GetValidSpawnPosition(_slowZoneRadius);
             _spawnPositions.Add(position);
-            Instantiate(_slowZonePrefab, position, Quaternion.identity);
+            GameObject slowZone = _dangerZoneFactory.CreateDangerZone(DangerZoneType.Slow);
+            Instantiate(slowZone, position, Quaternion.identity);
         }
 
-        // Генерация зон смерти
         for (int i = 0; i < _deathZoneCount; i++)
         {
             Vector3 position = GetValidSpawnPosition(_deathZoneRadius);
             _spawnPositions.Add(position);
-            Instantiate(_deathZonePrefab, position, Quaternion.identity);
+            GameObject deathZone = _dangerZoneFactory.CreateDangerZone(DangerZoneType.Death);
+            Instantiate(deathZone, position, Quaternion.identity);
         }
     }
 

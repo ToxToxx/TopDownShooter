@@ -10,6 +10,7 @@ public class SceneChanger : MonoBehaviour
     private void LoadGame()
     {
         Loader.Load(_concreteScene);
+        Time.timeScale = 1.0f;
     }
 
     private void OnEnable()

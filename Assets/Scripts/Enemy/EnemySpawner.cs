@@ -12,11 +12,13 @@ public class EnemySpawner : MonoBehaviour
 
     private float _nextSpawnTime = 0f;
     private float _nextRateReductionTime = 0f;
+    private EnemyFactory _enemyFactory;
 
     void Start()
     {
         _nextSpawnTime = Time.time + _spawnRate;
         _nextRateReductionTime = Time.time + _spawnRateReductionInterval;
+        _enemyFactory = new EnemyFactory(_enemyPrefabs, _spawnChances);
     }
 
     void Update()
@@ -36,58 +38,39 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject enemyGO = Instantiate(GetRandomEnemyPrefab(), GetSpawnPosition(), Quaternion.identity);
+        GameObject enemyGO = Instantiate(_enemyFactory.CreateRandomEnemy(), GetSpawnPosition(), Quaternion.identity);
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.Initialize(_playerTransform);
     }
 
     Vector3 GetSpawnPosition()
     {
-        // Спавн за пределами видимости камеры
-        _ = Vector3.zero;
+        // Spawn outside the camera view
         float x = 0f, z = 0f;
-        float cameraLength = 2f * Camera.main.orthographicSize;
-        float cameraWidth = cameraLength * Camera.main.aspect;
+        float cameraHeight = 2f * Camera.main.orthographicSize;
+        float cameraWidth = cameraHeight * Camera.main.aspect;
         int side = Random.Range(0, 4);
 
         switch (side)
         {
             case 0: // Left
                 x = Camera.main.transform.position.x - cameraWidth / 2 - 1;
-                z = Random.Range(Camera.main.transform.position.z - cameraLength / 2, Camera.main.transform.position.z + cameraLength / 2);
+                z = Random.Range(Camera.main.transform.position.z - cameraHeight / 2, Camera.main.transform.position.z + cameraHeight / 2);
                 break;
             case 1: // Right
                 x = Camera.main.transform.position.x + cameraWidth / 2 + 1;
-                z = Random.Range(Camera.main.transform.position.z - cameraLength / 2, Camera.main.transform.position.z + cameraLength / 2);
+                z = Random.Range(Camera.main.transform.position.z - cameraHeight / 2, Camera.main.transform.position.z + cameraHeight / 2);
                 break;
             case 2: // Top
                 x = Random.Range(Camera.main.transform.position.x - cameraWidth / 2, Camera.main.transform.position.x + cameraWidth / 2);
-                z = Camera.main.transform.position.z + cameraLength / 2 + 1;
+                z = Camera.main.transform.position.z + cameraHeight / 2 + 1;
                 break;
             case 3: // Bottom
                 x = Random.Range(Camera.main.transform.position.x - cameraWidth / 2, Camera.main.transform.position.x + cameraWidth / 2);
-                z = Camera.main.transform.position.z - cameraLength / 2 - 1;
+                z = Camera.main.transform.position.z - cameraHeight / 2 - 1;
                 break;
         }
 
-        Vector3 spawnPosition = new Vector3(x, 1.5f, z);
-        return spawnPosition;
-    }
-
-    GameObject GetRandomEnemyPrefab()
-    {
-        float rand = Random.Range(0f, 100f);
-        float cumulativeChance = 0f;
-
-        for (int i = 0; i < _enemyPrefabs.Length; i++)
-        {
-            cumulativeChance += _spawnChances[i];
-            if (rand < cumulativeChance)
-            {
-                return _enemyPrefabs[i];
-            }
-        }
-
-        return _enemyPrefabs[0]; // Возвращаем первый префаб по умолчанию
+        return new Vector3(x, 1.5f, z);
     }
 }
