@@ -3,11 +3,16 @@ using UnityEngine;
 public class PlayerDeathController : MonoBehaviour
 {
     public static PlayerDeathController Instance;
-    private bool _isPlayerCanDie;
+    private bool _isPlayerCanDie = true;
     [SerializeField] private GameObject _deathScreen;
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
     }
     private void OnTriggerEnter(Collider other)

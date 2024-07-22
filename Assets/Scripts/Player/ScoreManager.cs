@@ -6,23 +6,20 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    private float _playerScore;
+    private float _playerScore = 0;
     private float _maxScore;
 
     private const string MAX_SCORE_KEY = "MaxScore";
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            LoadMaxScore();
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+        Instance = this;
+        LoadMaxScore();
     }
 
     public void AddScore(float score)

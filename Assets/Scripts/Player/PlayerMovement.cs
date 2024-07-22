@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
         Instance = this;
         _playerRb = GetComponent<Rigidbody>();
     }
