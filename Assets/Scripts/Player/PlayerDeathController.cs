@@ -9,7 +9,6 @@ public class PlayerDeathController : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        _deathScreen.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
