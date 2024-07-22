@@ -53,6 +53,10 @@ public class ShootController : MonoBehaviour
         return Vector3.zero; // Ќа случай, если не удалось определить позицию
     }
 
+    public Weapon GetCurrentWeapon()
+    {
+        return _currentWeapon;
+    }
     public float GetWeaponDamage()
     {
         return _currentWeapon.WeaponStats.Damage;
