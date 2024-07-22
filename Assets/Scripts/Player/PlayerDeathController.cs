@@ -4,10 +4,12 @@ public class PlayerDeathController : MonoBehaviour
 {
     public static PlayerDeathController Instance;
     private bool _isPlayerCanDie;
+    [SerializeField] private GameObject _deathScreen;
 
     private void Awake()
     {
-        Instance = this; 
+        Instance = this;
+        _deathScreen.SetActive(false);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -23,6 +25,7 @@ public class PlayerDeathController : MonoBehaviour
         if (_isPlayerCanDie)
         {
             Time.timeScale = 0f;
+            _deathScreen.SetActive(true);
         }
     }
 
