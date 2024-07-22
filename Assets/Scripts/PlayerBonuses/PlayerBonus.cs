@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class PlayerBonus : MonoBehaviour
 {
-    private float _playerBonusDuration = 10f;
+    private readonly float _playerBonusDuration = 10f;
     public abstract void ApplyEffect();
     public abstract void RemoveEffect( );
     private void OnTriggerEnter(Collider other)

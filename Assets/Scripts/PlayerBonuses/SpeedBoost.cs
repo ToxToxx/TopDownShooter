@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpeedBoost : PlayerBonus
 {
-    private float _speedMultiplier = 1.5f;
+    private readonly float _speedMultiplier = 1.5f;
     private float _currentMoveSpeed;
 
     public override void ApplyEffect()
