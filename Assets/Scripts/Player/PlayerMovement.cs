@@ -50,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _turnSpeed * Time.deltaTime);
     }
 
-    public void ChangeMoveSpeed(float speed)
+    public void MultiplySpeed(float speedMultiplier)
     {
-        _moveSpeed = speed;
+        _moveSpeed *= speedMultiplier;
     }
 
     public float GetMoveSpeed() { return _moveSpeed; }

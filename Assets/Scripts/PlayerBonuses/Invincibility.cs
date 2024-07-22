@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Invincibility : PlayerBonus
 {
+
     public override void ApplyEffect()
     {
         PlayerDeathController.Instance.SwitchPlayerDieState(false);
@@ -11,5 +12,6 @@ public class Invincibility : PlayerBonus
     public override void RemoveEffect()
     {
         PlayerDeathController.Instance.SwitchPlayerDieState(true);
+        Destroy(gameObject);
     }
 }

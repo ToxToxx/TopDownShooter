@@ -13,6 +13,7 @@ public class PlayerDeathController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<Enemy>())
         {
+            Destroy(other.gameObject);
             Die();
         }
     }

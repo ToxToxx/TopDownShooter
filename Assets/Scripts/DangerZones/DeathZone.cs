@@ -8,6 +8,7 @@ public class DeathZone : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>())
         {
+            PlayerDeathController.Instance.SwitchPlayerDieState(true);
             PlayerDeathController.Instance.Die();
         }
     }

@@ -14,7 +14,7 @@ public class DangerZoneSpawner : MonoBehaviour
     [SerializeField] private float _Xdistance = 37f;
     [SerializeField] private float _Zdistance = 27f;
 
-    private List<Vector3> _spawnPositions = new List<Vector3>();
+    private readonly List<Vector3> _spawnPositions = new();
 
     void Start()
     {

@@ -5,20 +5,16 @@ using UnityEngine;
 public class SpeedBoost : PlayerBonus
 {
     private readonly float _speedMultiplier = 1.5f;
-    private float _currentMoveSpeed;
 
     public override void ApplyEffect()
     {
-        _currentMoveSpeed = PlayerMovement.Instance.GetMoveSpeed();
-        _currentMoveSpeed *= _speedMultiplier;
-        PlayerMovement.Instance.ChangeMoveSpeed(_currentMoveSpeed);
+        PlayerMovement.Instance.MultiplySpeed(_speedMultiplier);
     }
 
     public override void RemoveEffect()
     {
-        _currentMoveSpeed = PlayerMovement.Instance.GetMoveSpeed();
-        _currentMoveSpeed /= _speedMultiplier;
-        PlayerMovement.Instance.ChangeMoveSpeed(_currentMoveSpeed);
+        PlayerMovement.Instance.MultiplySpeed(1/ _speedMultiplier);
+        Destroy(gameObject);
     }
 
 }

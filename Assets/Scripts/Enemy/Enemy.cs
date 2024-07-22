@@ -49,6 +49,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         Debug.Log(_enemyData.EnemyName + " уничтожен!");
+        ScoreManager.Instance.AddScore(_enemyData.Points);
         Destroy(gameObject);
     }
 }

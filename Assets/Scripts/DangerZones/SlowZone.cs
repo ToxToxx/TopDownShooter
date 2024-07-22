@@ -5,15 +5,13 @@ using UnityEngine;
 public class SlowZone : MonoBehaviour
 {
     private readonly float _slowMultiplier = 0.6f;
-    private float _currentMoveSpeed;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<PlayerMovement>())
         {
-            _currentMoveSpeed = PlayerMovement.Instance.GetMoveSpeed();
-            _currentMoveSpeed *= _slowMultiplier;
-            PlayerMovement.Instance.ChangeMoveSpeed(_currentMoveSpeed);
+
+            PlayerMovement.Instance.MultiplySpeed(_slowMultiplier);
         }
     }
 
@@ -21,9 +19,7 @@ public class SlowZone : MonoBehaviour
     {
         if (other.GetComponent<PlayerMovement>())
         {
-            _currentMoveSpeed = PlayerMovement.Instance.GetMoveSpeed();
-            _currentMoveSpeed /= _slowMultiplier;
-            PlayerMovement.Instance.ChangeMoveSpeed(_currentMoveSpeed);
+            PlayerMovement.Instance.MultiplySpeed(1/ _slowMultiplier);
         }
     }
 }

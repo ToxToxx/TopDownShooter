@@ -44,7 +44,7 @@ public class EnemySpawner : MonoBehaviour
     Vector3 GetSpawnPosition()
     {
         // Спавн за пределами видимости камеры
-        Vector3 spawnPosition = Vector3.zero;
+        _ = Vector3.zero;
         float x = 0f, z = 0f;
         float cameraLength = 2f * Camera.main.orthographicSize;
         float cameraWidth = cameraLength * Camera.main.aspect;
@@ -70,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
         }
 
-        spawnPosition = new Vector3(x, 1.5f, z);
+        Vector3 spawnPosition = new Vector3(x, 1.5f, z);
         return spawnPosition;
     }
 

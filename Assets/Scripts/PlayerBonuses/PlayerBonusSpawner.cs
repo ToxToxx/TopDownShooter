@@ -19,6 +19,7 @@ public class PlayerBonusSpawner : MonoBehaviour
         if (Time.time >= _nextSpawnTime)
         {
             SpawnPowerUp();
+           
             _nextSpawnTime = Time.time + _spawnRate;
         }
     }
@@ -28,7 +29,6 @@ public class PlayerBonusSpawner : MonoBehaviour
         Vector3 spawnPosition = GetSpawnPosition();
         GameObject selectedPowerUp = GetRandomPowerUp();
         _ = Instantiate(selectedPowerUp, spawnPosition, Quaternion.identity);
-        Destroy(selectedPowerUp, 5f);
     }
 
     Vector3 GetSpawnPosition()
